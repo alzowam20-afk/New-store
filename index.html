@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الإلكترونيات - أحدث الأجهزة والتقنيات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- الترويسة -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <h1>متجر الإلكترونيات</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="ابحث عن منتج...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="cart-icon" id="cartToggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- شريط التصنيفات -->
+    <nav class="categories-nav">
+        <div class="container">
+            <div class="categories-content">
+                <div class="category-filter">
+                    <button class="filter-btn active" data-category="all">الكل</button>
+                    <button class="filter-btn" data-category="phones">📱 الهواتف</button>
+                    <button class="filter-btn" data-category="laptops">💻 اللابتوبات</button>
+                    <button class="filter-btn" data-category="gaming">🎮 الألعاب</button>
+                    <button class="filter-btn" data-category="audio">🎧 السماعات</button>
+                    <button class="filter-btn" data-category="accessories">🔌 الإكسسوارات</button>
+                </div>
+                <div class="sort-filter">
+                    <select id="sortSelect">
+                        <option value="default">ترتيب حسب</option>
+                        <option value="price-low">السعر: من الأقل</option>
+                        <option value="price-high">السعر: من الأعلى</option>
+                        <option value="rating">الأعلى تقييماً</option>
+                        <option value="newest">الأحدث</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main">
+        <div class="container">
+            <div class="main-content">
+                <!-- الشريط الجانبي -->
+                <aside class="sidebar">
+                    <div class="filter-section">
+                        <h3>🔍 تصفية النتائج</h3>
+                        
+                        <div class="filter-group">
+                            <h4>النطاق السعري</h4>
+                            <div class="price-range">
+                                <input type="range" id="priceRange" min="0" max="5000" value="5000">
+                                <div class="price-labels">
+                                    <span>0 دينار</span>
+                                    <span id="maxPrice">5000 دينار</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>العلامات التجارية</h4>
+                            <div class="brand-filters">
+                                <label><input type="checkbox" value="samsung"> سامسونج</label>
+                                <label><input type="checkbox" value="apple"> أبل</label>
+                                <label><input type="checkbox" value="xiaomi"> شاومي</label>
+                                <label><input type="checkbox" value="sony"> سوني</label>
+                                <label><input type="checkbox" value="dell"> ديل</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>التقييم</h4>
+                            <div class="rating-filters">
+                                <label><input type="checkbox" value="5"> ⭐⭐⭐⭐⭐ (5)</label>
+                                <label><input type="checkbox" value="4"> ⭐⭐⭐⭐ (4+)</label>
+                                <label><input type="checkbox" value="3"> ⭐⭐⭐ (3+)</label>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- منطقة المنتجات -->
+                <section class="products-section">
+                    <div class="products-header">
+                        <h2 id="productsCount">20 منتج</h2>
+                        <div class="view-options">
+                            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsGrid">
+                        <!-- المنتجات تُحمّل هنا -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- سلة التسوق -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>🛒 سلة التسوق</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- عناصر السلة تُحمّل هنا -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div class="cart-total">
+                    <span>المجموع:</span>
+                    <span id="cartTotal">0</span> <span>دينار</span>
+                </div>
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fab fa-whatsapp"></i> إتمام الطلب عبر واتساب
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الخلفية المعتمة -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- التذييل -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>متجر الإلكترونيات</h4>
+                    <p>أحدث الأجهزة الإلكترونية بأفضل الأسعار</p>
+                </div>
+                <div class="footer-section">
+                    <h4>للتواصل</h4>
+                    <p><a href="https://wa.me/+2180931122226">+2180931122226</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
